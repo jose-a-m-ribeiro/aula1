@@ -1,20 +1,40 @@
-<script setup>
+<script seup >
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import { ref, onMounted } from 'vue'
+
+export default {
+  export default {
+    data() {
+      return {
+        contador: 0,
+      };
+    },
+    methods: {
+      incrementar() {
+        this.contador++;
+      },
+      decrementar() {
+        if (this.contador > 0) {
+          this.contador--;
+        }
+      },
+      reiniciar() {
+        this.contador = 0;
+      },
+    },
+  };
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <div>
+    <h1>Contador</h1>
+    <p> {{ contador }} </p>
+    <button @click="incrementar">Incrementar</button>
+    <button @click="decrementar">Decrementar</button>
+    <button @click="reiniciar">Reiniciar</button>
+  </div>
 </template>
 
 <style scoped>
